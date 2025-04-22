@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction Status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .status-message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #28a745;
+        }
+        .transaction-status {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .loading-spinner {
+            margin-top: 20px;
+            display: none;
+        }
+        .console-log {
+            margin-top: 20px;
+            color: gray;
+            font-style: italic;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Transaction Status</h1>
+    <p class="status-message">{{ message }}</p>
+    <p class="transaction-status">{{ transaction_status }}</p>
+    
+    <div class="loading-spinner">
+        <img src="https://i.gifer.com/4V0b.gif" alt="Loading..." />
+        <p>Processing your request... Please wait!</p>
+    </div>
+    
+    <div class="console-log">
+        <p><strong>Sample Console Output:</strong><br><br>[VIEW] Transaction Opened<br>[SIGNAL] Transaction active: True<br>[VIEW] Transaction Before Commit
+        </p>
+    </div>
+
+    <a href="{% url 'save_record' %}" class="btn" onclick="showLoading()">Save Another Record</a>
+</div>
+
+<script>
+    function showLoading() {
+        document.querySelector(".loading-spinner").style.display = "block";
+        document.querySelector(".transaction-status").textContent = "Processing the transaction, please check the console for logs!";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thread Test - Django Signal Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            padding: 40px;
+        }
+        .card {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .thread-info {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: left;
+        }
+        .thread-info p {
+            margin: 10px 0;
+        }
+        .thread-info span {
+            font-weight: bold;
+            color: #000;
+        }
+        .note {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>{{ message }}</h1>
+
+    <div class="thread-info">
+        <p>🧵 <strong>Caller Thread ID:</strong> <span>{{ view_thread_id }}</span></p>
+        <p>🔔 <strong>Signal Thread ID:</strong> <span>{{ signal_thread_id|default:"(Check terminal)" }}</span></p>
+    </div>
+
+    <p class="note">ℹ️ Thread IDs will remain the same until the development server is restarted.</p>
+</div>
+
+</body>
+</html>

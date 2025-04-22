@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placement - Synchronous Signal Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            font-size: 18px;
+            margin-top: 30px;
+            font-weight: bold;
+            color: green;
+        }
+        .order-details {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Order Successfully Placed</h1>
+        <p class="message">{{ message|linebreaksbr }}</p>
+
+        <div class="order-details">
+            <h3>Order Details:</h3>
+            <p><strong>Customer Name:</strong> {{ order.customer_name }}</p>
+            <p><strong>Product:</strong> {{ order.product_name }}</p>
+            <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+            <p><strong>Status:</strong> {{ order.status }}</p>
+            <p><strong>Order Date:</strong> {{ order.order_date }}</p>
+        </div>
+
+        <a href="{% url 'place_order' %}">
+            <button class="button">Place Another Order</button>
+        </a>
+    </div>
+
+</body>
+</html>
